@@ -1,0 +1,34 @@
+<template>
+  <lightning-card title="Create Account With Contact In LWC" variant="Narrow"  icon-name="standard:account">
+    <lightning-layout multiple-rows>
+            <!--Account and Contact Input fields-->
+
+          <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+              <lightning-input label="Name" name="accountName" onchange={handleNameChange} required="true"></lightning-input>
+              <lightning-input label="Website" onchange={handleNameChange} name="Website"></lightning-input>
+              <lightning-input label="First Name"  onchange={contactChangeVal} name="First Name"></lightning-input>
+          </lightning-layout-item>
+
+          <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                <lightning-input label="Last Name"  onchange={contactChangeVal} name="Last Name" required="true"></lightning-input>
+                <lightning-input label="Email" onchange={contactChangeVal} name ="Email" type="email"></lightning-input>
+                <lightning-input label="Phone" onchange={contactChangeVal} name="Phone" type="phone"></lightning-input>
+          </lightning-layout-item>
+
+          <!--Upload Files Section-->
+          <div class="slds-m-around_medium">
+            <lightning-input type="file" accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf" label="Attachment" onchange={openfileUpload}></lightning-input>
+          </div>
+          <template if:true={fileData}>
+              <p>{fileData.filename}</p>
+          </template>
+
+          <!--Buttons Section-->
+          <lightning-layout-item size="12" class="slds-m-top_small slds-m-bottom_medium">
+            <lightning-button label="Save" variant="brand" onclick={saveAction} class="slds-m-left_x-small"></lightning-button>
+            <lightning-button variant="brand" label="Save and New" class="slds-m-left_x-small" onclick={handleSaveandNew}></lightning-button>
+            <lightning-button variant="brand" label="Cancel" class="slds-m-left_x-small" onclick={handleCancel}></lightning-button>
+          </lightning-layout-item>
+    </lightning-layout>
+ </lightning-card>
+</template>
