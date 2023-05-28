@@ -176,12 +176,13 @@ export default class Webcode extends NavigationMixin(LightningElement) {
             );
         });
 
-        /*Call fileupload method */
-        this.insertUploadedFile();
-     
+        
         this.template.querySelectorAll('lightning-input').forEach(field => {
             field.value = null;
         }); 
+        /*Call fileupload method */
+        this.insertUploadedFile();
+     
    }
 
      /* This method is used to upload a file from system*/
